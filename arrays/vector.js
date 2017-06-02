@@ -13,7 +13,7 @@ var Vector = function (capacity)
   };
 
   this.isEmpty = function() {
-    return this.size == 0;
+    return this._size == 0;
   }
 
   this.at = function(index) {
@@ -35,7 +35,7 @@ var Vector = function (capacity)
     }
 
     this._array[index] = item;
-    this.size++;
+    this._size++;
   }
 
   this.prepend = function(item) {
@@ -53,7 +53,7 @@ var Vector = function (capacity)
 
     var aux = this._array[index];
 
-    for(var i = index; i < this.size - 1; i++){
+    for(var i = index; i < this._size - 1; i++){
       this._array[i] = this._array[i + 1];
     }
 
@@ -73,7 +73,7 @@ var Vector = function (capacity)
 
   this.find = function(item) {
     for (var i = 0; i < this._size; i++){
-      if(this._array[i] = item){
+      if(this._array[i] == item){
         return i;
       }
     }
@@ -89,11 +89,11 @@ var Vector = function (capacity)
   }
 
   this._expand = function() {
-    if (this._size == this.capacity) {
-      this.capacity = this.capacity * 2;
+    if (this._size == this._capacity) {
+      this._capacity = this._capacity * 2;
 
       var aux = [];
-      for (var i = 0; i < this.size; i++) {
+      for (var i = 0; i < this._size; i++) {
         aux[i] = this._array[i];
       } 
       this._array = aux;
@@ -101,11 +101,11 @@ var Vector = function (capacity)
   }
 
   this._shrink = function() {
-    if (this._size <= this.capacity / 4) {
-      this.capacity = this.capacity / 2;
+    if (this._size <= this._capacity / 4) {
+      this._capacity = this._capacity / 2;
 
       var aux = [];
-      for (var i = 0; i < this.size; i++) {
+      for (var i = 0; i < this._size; i++) {
         aux[i] = this._array[i];
       } 
       this._array = aux;

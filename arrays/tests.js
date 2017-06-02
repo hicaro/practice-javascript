@@ -4,6 +4,14 @@ var VectorTests = function() {
 
   this.run = function(){
     this._testSize();
+	  this._testIsEmpty();
+	  this._testCapacity();
+	  this._testValueAt();
+	  this._testPop();
+	  this._testInsert();
+	  this._testDelete();
+	  this._testRemove();
+	  this._testFind();
   };
 
   this._testSize = function()
